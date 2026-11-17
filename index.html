@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find your next favorite neighborhood cafe."
+    />
+    <title>Little Cup — Find your cafe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Little Cup home">
+        <span class="brand-mark" aria-hidden="true">lc</span>
+        <span>little cup</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#discover">Discover</a>
+        <a class="nav-link" id="saved-nav" href="#results-heading">Saved <span id="saved-count">0</span></a>
+      </nav>
+      <a class="header-note" href="#discover"><span aria-hidden="true">✦</span> Your neighborhood, brewed better</a>
+    </header>
+
+    <main>
+      <section class="hero" id="discover">
+        <div class="hero-content">
+          <p class="eyebrow"><span aria-hidden="true">☕</span> YOUR LOCAL CAFE GUIDE</p>
+          <h1>Find your <em>happy</em> place.</h1>
+          <p class="hero-copy">
+            Find real cafes near your current location, using live
+            OpenStreetMap data.
+          </p>
+          <button class="location-button" id="location-button" type="button">
+            <span aria-hidden="true">⌖</span> Use my location
+          </button>
+          <p class="location-status" id="location-status" role="status" aria-live="polite">
+            Share your location to find cafes within 1.5 km. Your coordinates
+            are sent to OpenStreetMap to search nearby.
+          </p>
+          <form class="search-form" id="search-form" role="search">
+            <label class="search-icon" for="search-input" aria-hidden="true">⌕</label>
+            <input
+              id="search-input"
+              name="search"
+              type="search"
+              aria-label="Search cafes"
+              placeholder="Search nearby cafe names or cuisine"
+              autocomplete="off"
+            />
+            <button type="submit">Find a cafe <span aria-hidden="true">→</span></button>
+          </form>
+          <a
+            class="maps-search-link"
+            id="maps-search-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Open this search in Google Maps <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-sun"></div>
+          <div class="art-leaf leaf-one"></div>
+          <div class="art-leaf leaf-two"></div>
+          <div class="art-cup"><div class="cup-steam">〰</div><div class="cup-handle"></div></div>
+          <div class="art-saucer"></div>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✦</span>
+        </div>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-heading">
+        <div class="section-top">
+          <div>
+            <p class="eyebrow section-eyebrow">REAL CAFES AROUND YOU</p>
+            <h2 id="results-heading">Nearby <em>cafes</em></h2>
+          </div>
+          <label class="sort-control">
+            <span>Sort by</span>
+            <select id="sort-select" aria-label="Sort cafes">
+              <option value="distance" selected>Nearest</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter cafes">
+          <button class="filter-chip selected" type="button" data-filter="all" aria-pressed="true">All nearby</button>
+          <button class="filter-chip" type="button" data-filter="favorites" aria-pressed="false">♡ My saved</button>
+        </div>
+
+        <div class="results-meta">
+          <p id="results-count" aria-live="polite">Share your location to find nearby cafes.</p>
+          <button class="clear-button" id="clear-filters" type="button">Clear filters</button>
+        </div>
+        <div class="cafe-grid" id="cafe-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">☕</span>
+          <h3 id="empty-title">Find real cafes near you</h3>
+          <p id="empty-message">Allow location access to search OpenStreetMap for cafes within 1.5 km. No sample places are shown.</p>
+          <button class="text-button" id="empty-action" type="button">Use my location →</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">lc</span><span>little cup</span></a>
+      <p>Cafe locations from OpenStreetMap contributors.</p>
+      <a class="footer-location" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+    </footer>
+  </body>
+</html>
